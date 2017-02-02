@@ -1,0 +1,26 @@
+{
+  "name": "authentication_example",
+  "description": "Authentication sample with ng-auth-token and devise_token_auth",
+  "main": "",
+  "keywords": [
+    "authentitacion",
+    "devise",
+    "angular"
+  ],
+  "authors": [
+    "Luiz Romário Filho"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "ng-token-auth": "^0.0.29"
+  }
+}
