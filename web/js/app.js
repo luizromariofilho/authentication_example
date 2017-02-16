@@ -27,9 +27,16 @@ app.config(function($stateProvider,$urlRouterProvider) {
 		templateUrl: 'views/login.html'
 	}
 
+	var registerState = {
+		name: 'register',
+		url: '/register',
+		templateUrl: 'views/register.html'
+	}
+
 	$stateProvider.state(helloState);
 	$stateProvider.state(aboutState);
 	$stateProvider.state(loginState);
+	$stateProvider.state(registerState);
 });
 
 
@@ -42,5 +49,25 @@ app.controller('IndexCtrl', function($scope, $auth) {
         .catch(function(resp) {
           console.log('nao funcionou');
         });
-    };
+    }
+
+    $scope.handleRegBtnClick = function() {
+      $auth.submitRegistration($scope.registrationForm)
+        .then(function(resp) {
+          console.log(resp);
+        })
+        .catch(function(resp) {
+        	console.log("error: " + resp);
+        });
+    }
+    
+    $scope.handleSignOutBtnClick = function() {
+      $auth.signOut()
+        .then(function(resp) {
+          // handle success response
+        })
+        .catch(function(resp) {
+          // handle error response
+        });
+    }
   });

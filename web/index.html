@@ -10,18 +10,24 @@
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
 	<link rel="stylesheet" href="css/app.css">
 </head>
-<body ng-app="app">
+<body ng-app="app" ng-init="tab=1">
 <div class="blog-masthead">
 	<div class="container">
 		<nav class="blog-nav">
-			<a class="blog-nav-item active" ui-sref="hello">
+			<a class="blog-nav-item" ui-sref="hello" ng-click="tab=1" ng-class="{'active' : tab==1}">
 				<spam class="glyphicon glyphicon-home"></spam> Hello
 			</a>
-			<a class="blog-nav-item" ui-sref="about">
+			<a class="blog-nav-item" ui-sref="about" ng-click="tab=2" ng-class="{'active' : tab==2}">
 				<spam class="glyphicon glyphicon-font"></spam> About
 			</a>
-			<a class="blog-nav-item" ui-sref="login">
-				<spam class="glyphicon glyphicon-user"></spam> Login
+			<a class="blog-nav-item" ui-sref="login" ng-click="tab=3" ng-class="{'active' : tab==3}" ng-show="!user.signedIn">
+				<spam class="glyphicon glyphicon-log-in"></spam> Login
+			</a>
+			<a class="blog-nav-item" ui-sref="register" ng-click="tab=4" ng-class="{'active' : tab==4}" ng-show="!user.signedIn">
+				<spam class="glyphicon glyphicon-user"></spam> Register
+			</a>
+			<a class="blog-nav-item" ng-click='signOut()' ng-click="tab=5" ng-class="{'active' : tab==5}" ng-show="user.signedIn">
+				<spam class="glyphicon glyphicon-log-out"></spam> Logout
 			</a>
 		</nav>
 	</div>
