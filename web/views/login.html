@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-		<form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+		<form ng-submit="handleLoginBtnClick()" role="form" ng-init="loginForm = {}">
 		  <div class="form-group">
 		    <label>email</label>
 		    <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control"/>

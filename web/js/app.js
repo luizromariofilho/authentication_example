@@ -24,13 +24,15 @@ app.config(function($stateProvider,$urlRouterProvider) {
 	var loginState = {
 		name: 'login',
 		url: '/login',
-		templateUrl: 'views/login.html'
+		templateUrl: 'views/login.html',
+		controller: 'IndexCtrl'
 	}
 
 	var registerState = {
 		name: 'register',
 		url: '/register',
-		templateUrl: 'views/register.html'
+		templateUrl: 'views/register.html',
+		controller: 'IndexCtrl'
 	}
 
 	$stateProvider.state(helloState);
@@ -40,11 +42,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
 });
 
 
-app.controller('IndexCtrl', function($scope, $auth) {
+app.controller('IndexCtrl', function($scope, $auth, $rootScope, $state) {
     $scope.handleLoginBtnClick = function() {
       $auth.submitLogin($scope.loginForm)
         .then(function(resp) {
-          console.log('funcionou');
+			$rootScope.$on('auth:login-success', function(ev, user) {
+				$state.go('about');
+			});
         })
         .catch(function(resp) {
           console.log('nao funcionou');
